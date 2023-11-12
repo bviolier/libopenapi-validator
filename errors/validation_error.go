@@ -5,6 +5,7 @@ package errors
 
 import (
 	"fmt"
+	"github.com/pb33f/libopenapi/datamodel/high/base"
 	"github.com/santhosh-tekuri/jsonschema/v5"
 )
 
@@ -32,6 +33,9 @@ type SchemaValidationFailure struct {
 	// if the validation is a schema (only schemas are validated locally, so the column number will be relative to
 	// the Context object held by the ValidationError object).
 	Column int `json:"column,omitempty" yaml:"column,omitempty"`
+
+	// Schema is the schema that was referenced in the validation failure.
+	Schema *base.Schema
 
 	// ReferenceSchema is the schema that was referenced in the validation failure.
 	ReferenceSchema string `json:"referenceSchema,omitempty" yaml:"referenceSchema,omitempty"`

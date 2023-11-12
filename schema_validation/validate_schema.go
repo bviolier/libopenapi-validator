@@ -104,6 +104,7 @@ func validateSchema(schema *base.Schema, payload []byte, decodedObject interface
 			violation := &liberrors.SchemaValidationFailure{
 				Reason:          err.Error(),
 				Location:        "unavailable",
+				Schema:          schema,
 				ReferenceSchema: string(renderedSchema),
 				ReferenceObject: string(payload),
 			}
@@ -152,6 +153,7 @@ func validateSchema(schema *base.Schema, payload []byte, decodedObject interface
 				violation := &liberrors.SchemaValidationFailure{
 					Reason:          err.Error(),
 					Location:        "unavailable",
+					Schema:          schema,
 					ReferenceSchema: string(renderedSchema),
 					ReferenceObject: string(payload),
 				}

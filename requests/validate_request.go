@@ -49,6 +49,7 @@ func ValidateRequestSchema(
 			violation := &errors.SchemaValidationFailure{
 				Reason:          err.Error(),
 				Location:        "unavailable",
+				Schema:          schema,
 				ReferenceSchema: string(renderedSchema),
 				ReferenceObject: string(requestBody),
 			}
@@ -118,6 +119,7 @@ func ValidateRequestSchema(
 				violation := &errors.SchemaValidationFailure{
 					Reason:          er.Error,
 					Location:        er.KeywordLocation,
+					Schema:          schema,
 					ReferenceSchema: string(renderedSchema),
 					ReferenceObject: referenceObject,
 					OriginalError:   jk,
